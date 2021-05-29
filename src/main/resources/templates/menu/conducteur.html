@@ -11,7 +11,7 @@
             <th scope="col">Suprimer</th>
           </tr>
           <tr th:each="conducteur:${conducteurs}">
-            <th scope="row" th:text="${conducteur.id_conducteur}"></th>
+            <td scope="row" th:text="${conducteur.id}"></td>
             <td th:text="${conducteur.nom}"></td>
             <td th:text="${conducteur.prenom}"></td>
             <td >
@@ -32,6 +32,6 @@
               <label>Prenom</label>
               <input type="text" class="form-control" name="prenom">
             </div>
-        <input type="submit" class="btnAjoutConducteur">Ajouter Conducteur</button>
+        <button type="submit" class="btnAjoutConducteur">Ajouter Conducteur</button>
       </form>
     </div>

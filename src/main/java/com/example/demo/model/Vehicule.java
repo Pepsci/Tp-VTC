@@ -9,7 +9,7 @@ import javax.persistence.Id;
 public class Vehicule {
 	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id_vehicule;
+	private Long id;
 	
 	private String marque;
 	private String model;
@@ -29,21 +29,21 @@ public class Vehicule {
 		this.immatriculation = immatriculation;
 	}
 
-	public Vehicule(Long id_vehicule, String marque, String model, String couleur, String immatriculation) {
+	public Vehicule(Long id, String marque, String model, String couleur, String immatriculation) {
 		super();
-		this.id_vehicule = id_vehicule;
+		this.id = id;
 		this.marque = marque;
 		this.model = model;
 		this.couleur = couleur;
 		this.immatriculation = immatriculation;
 	}
 
-	public Long getId_vehicule() {
-		return id_vehicule;
+	public Long getId() {
+		return id;
 	}
 
-	public void setId_vehicule(Long id_vehicule) {
-		this.id_vehicule = id_vehicule;
+	public void setId(Long id_vehicule) {
+		this.id = id_vehicule;
 	}
 
 	public String getMarque() {

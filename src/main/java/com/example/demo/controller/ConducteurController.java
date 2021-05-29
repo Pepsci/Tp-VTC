@@ -16,18 +16,18 @@ public class ConducteurController {
 	
 	@Autowired ConducteurRepository conducteurRepository;
 	
+//	@GetMapping("/conducteur")
+//	public String conducteur() {
+//		
+//		return"menu/conducteur";
+//	}
 	@GetMapping("/conducteur")
-	public String conducteur() {
+	public String listeConducteur(Model model){
 		
-		return"menu/conducteur";
-	}
-	
-	@GetMapping("/lconducteur")
-	public String ListConducteur(Model model) {
+		model.addAttribute("conducteur",conducteurRepository.findAll());
 		
-		model.addAttribute("conducteurs", conducteurRepository.findAll());
 		return "menu/conducteur";
-      }
+	}
 	
 	@PostMapping("/conducteur")
 	public String ajoutConducteur(@Validated Conducteur conducteur, BindingResult bindingResult) {
@@ -39,6 +39,8 @@ public class ConducteurController {
 		conducteurRepository.save(conducteur);
 		 return "redirect:/conducteur";
 	}
+	
+
 	
 
 }

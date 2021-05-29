@@ -9,35 +9,31 @@ import javax.persistence.Id;
 public class Conducteur {
 
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id_conducteur;
+	private Long id;
 	
 	private String nom;
 	private String prenom;
 	
+
+
 	public Conducteur() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Conducteur(String nom, String prenom) {
+	public Conducteur(Long id, String nom, String prenom) {
 		super();
+		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
 	}
 
-	public Conducteur(Long id_conducteur, String nom, String prenom) {
-		super();
-		this.id_conducteur = id_conducteur;
-		this.nom = nom;
-		this.prenom = prenom;
+	public Long getid() {
+		return id;
 	}
 
-	public Long getId_conducteur() {
-		return id_conducteur;
-	}
-
-	public void setId_conducteur(Long id_conducteur) {
-		this.id_conducteur = id_conducteur;
+	public void setid(Long id) {
+		this.id = id;
 	}
 
 	public String getNom() {

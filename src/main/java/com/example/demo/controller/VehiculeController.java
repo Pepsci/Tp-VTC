@@ -34,12 +34,4 @@ public class VehiculeController {
 		return "redirect:/vehicule";		
 	}
 	
-//	@GetMapping("/vehicule")
-//	public String ListConducteur(Model model) {
-//		
-//		List<Vehicule>vehicules = vehiculeRepository.findAll();
-//		model.addAttribute("vehicules",vehicules);
-//		return "menu/vehicule";
-//      }
-	
 }
