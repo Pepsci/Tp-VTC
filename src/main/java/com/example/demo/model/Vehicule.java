@@ -29,6 +29,15 @@ public class Vehicule {
 		this.immatriculation = immatriculation;
 	}
 
+	public Vehicule(Long id_vehicule, String marque, String model, String couleur, String immatriculation) {
+		super();
+		this.id_vehicule = id_vehicule;
+		this.marque = marque;
+		this.model = model;
+		this.couleur = couleur;
+		this.immatriculation = immatriculation;
+	}
+
 	public Long getId_vehicule() {
 		return id_vehicule;
 	}

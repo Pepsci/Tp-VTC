@@ -37,7 +37,7 @@ public class ConducteurController {
     	}
 		
 		conducteurRepository.save(conducteur);
-		 return "menu/conducteur";
+		 return "redirect:/conducteur";
 	}
 	
 
