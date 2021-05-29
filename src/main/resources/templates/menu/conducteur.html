@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="/css/tableForm.css">
+<div th:replace="fragment/header::header"></div>
+
+    <div class="container">
+    <table class="table">
+          <tr>
+            <th scope="col">id_conducteur</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Prenom</th>
+            <th scope="col">Modifier</th>
+            <th scope="col">Suprimer</th>
+          </tr>
+          <tr th:each="conducteur:${conducteurs}">
+            <th scope="row" th:text="${conducteur.id_conducteur}"></th>
+            <td th:text="${conducteur.nom}"></td>
+            <td th:text="${conducteur.prenom}"></td>
+            <td >
+            <a class="btn" th:href="#">Modifier</a>
+            </td>
+            <td >
+            <a class="btn" th:href="#">Supprimer</a>
+            </td>
+          </tr>
+      </table>
+    </div>
+    
+     <div class="container">
+        <form class="form" method="post" th:action="@{/conducteur}" th:object="${conducteur}">
+            <div class="mb-3">
+              <label>Nom</label>
+              <input type="text" class="form-control" name="nom">
+              <label>Prenom</label>
+              <input type="text" class="form-control" name="prenom">
+            </div>
+        <input type="submit" class="btnAjoutConducteur">Ajouter Conducteur</button>
+      </form>
+    </div>
