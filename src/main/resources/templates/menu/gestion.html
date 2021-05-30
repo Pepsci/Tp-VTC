@@ -28,12 +28,12 @@
               <label>Conducteur</label>
                <select class="form-select" aria-label="Default select example" name="conducteurs">
                		<option value="">Choisissez la conducteur</option>	
-			    	<option th:each="conducteur:${conducteurs}" th:value="${conducteur.id}" th:text="${conducteur.nom.toString}">
+			    	<option th:each="conducteur:${conducteurs}" th:value="${conducteur.id}" th:text="${conducteur.nom + conducteur.prenom}">
 			    	</option>
 			    </select>
               <label>Véhicule</label>
                <select multiple class="form-select-multi" aria-label="Default select example" name="vehicules">
-				    <option th:each="vehicule:${vehicules}" th:value="${vehicule.id}" th:text="${vehicule.marque}">
+				    <option th:each="vehicule:${vehicules}" th:value="${vehicule.id}" th:text="${vehicule.marque+vehicule.model}">
 				    </option>
 			    </select>
             </div>

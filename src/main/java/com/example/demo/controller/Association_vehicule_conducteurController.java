@@ -37,7 +37,6 @@ public class Association_vehicule_conducteurController {
 		if (bindingResult.hasErrors()) {
 			return "menu/gestion";
 		}
-		System.out.println(association_vehicule_conducteur);
 		association_vehicule_conducteurRepository.save(association_vehicule_conducteur);
 		return "redirect:/gestion";
 		
