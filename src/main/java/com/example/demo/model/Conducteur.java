@@ -1,9 +1,14 @@
 package com.example.demo.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Conducteur {
@@ -14,25 +19,35 @@ public class Conducteur {
 	private String nom;
 	private String prenom;
 	
+	@ManyToMany
+	@JoinTable(name="association_vehicule_conducteur",
+	joinColumns = {@JoinColumn(name ="conducteur")},	
+	inverseJoinColumns = {@JoinColumn(name="vehicule")})
+	private List<Vehicule>vehicules;
+	
+	public Conducteur(String nom, String prenom, List<Vehicule> vehicules) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.vehicules = vehicules;
+	}
 
+	public Conducteur(String nom, String prenom) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+	}
 
 	public Conducteur() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Conducteur(Long id, String nom, String prenom) {
-		super();
-		this.id = id;
-		this.nom = nom;
-		this.prenom = prenom;
-	}
-
-	public Long getid() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setid(Long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -51,7 +66,14 @@ public class Conducteur {
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
-	
-	
+
+	public List<Vehicule> getVehicules() {
+		return vehicules;
+	}
+
+	public void setVehicules(List<Vehicule> vehicules) {
+		this.vehicules = vehicules;
+	}
+
 	
 }

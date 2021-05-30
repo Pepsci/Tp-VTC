@@ -1,0 +1,46 @@
+<link rel="stylesheet" href="/css/tableForm.css">
+<meta charset="UTF-8">
+<div th:replace="fragment/header::header"></div>
+
+    <div class="container">
+    <table class="table">
+          <tr>
+            <th scope="col">id_association</th>
+            <th scope="col">Conducteur</th>
+            <th scope="col">Véhicule</th>
+            <th scope="col">Modifier</th>
+            <th scope="col">Suprimer</th>
+          </tr>
+          <tr th:each="gestion:${gestions}">
+            <td scope="row" th:text="${association_vehicule_conducteur.id}"></td>
+            <td th:text="${association_vehicule_conducteur.nom.toString}"></td>
+            <td th:text="${association_vehicule_conducteur.marque}"></td>
+            <td></td>
+            <td></td>
+          </tr>
+      </table>
+    </div>
+    
+     <div class="container">
+        <form class="form" method="post" th:action="@{/ajoutAsso}" th:object="${association_vehicule_conducteur}">
+            <div class="mb-3">
+              <input type="hidden" class="form-control" name="id">
+              <label>Conducteur</label>
+               <select class="form-select" aria-label="Default select example" name="conducteurs">
+               		<option value="">Choisissez la conducteur</option>	
+			    	<option th:each="conducteur:${conducteurs}" th:value="${conducteur.id}" th:text="${conducteur.nom.toString}">
+			    	</option>
+			    </select>
+              <label>Véhicule</label>
+               <select multiple class="form-select-multi" aria-label="Default select example" name="vehicules">
+				    <option th:each="vehicule:${vehicules}" th:value="${vehicule.id}" th:text="${vehicule.marque}">
+				    </option>
+			    </select>
+            </div>
+        <button type="submit" class="btnAjoutConducteur">Ajouter</button>
+      </form>
+    </div>
+    
+    
+    
+
