@@ -92,4 +92,10 @@ public class Vehicule {
 	public void setConducteurs(List<Conducteur> conducteurs) {
 		this.conducteurs = conducteurs;
 	}
+
+	@Override
+	public String toString() {
+		return marque + " " + model ;
+	}
+	
 }

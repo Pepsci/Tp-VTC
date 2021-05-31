@@ -11,29 +11,28 @@
             <th scope="col">Modifier</th>
             <th scope="col">Suprimer</th>
           </tr>
-          <tr th:each="gestion:${gestions}">
-            <td scope="row" th:text="${association_vehicule_conducteur.id}"></td>
-            <td th:text="${association_vehicule_conducteur.nom.toString}"></td>
-            <td th:text="${association_vehicule_conducteur.marque}"></td>
-            <td></td>
-            <td></td>
+          <tr th:each="association_vehicule_conducteur:${association_vehicule_conducteurs}">
+            <td th:text="${association_vehicule_conducteur.id}"></td>
+            <td th:each="conducteur:${conducteurs}" th:if="${conducteur.id} == ${association_vehicule_conducteur.conducteur}" th:text="${conducteur.toString()}"></td>
+            <td  th:each="vehicule:${vehicules}" th:if="${vehicule.id} == ${association_vehicule_conducteur.vehicule}"
+            th:text="${vehicule.toString()}"></td>
           </tr>
       </table>
     </div>
     
      <div class="container">
-        <form class="form" method="post" th:action="@{/ajoutAsso}" th:object="${association_vehicule_conducteur}">
+        <form class="form" method="post" th:action="@{/gestion}" th:object="${association_vehicule_conducteur}">
             <div class="mb-3">
               <input type="hidden" class="form-control" name="id">
               <label>Conducteur</label>
-               <select class="form-select" aria-label="Default select example" name="conducteurs">
+               <select class="form-select" aria-label="Default select example" name="conducteur">
                		<option value="">Choisissez la conducteur</option>	
-			    	<option th:each="conducteur:${conducteurs}" th:value="${conducteur.id}" th:text="${conducteur.nom + conducteur.prenom}">
+			    	<option th:each="conducteur:${conducteurs}" th:value="${conducteur.id}" th:text="${conducteur.nom +' '+ conducteur.prenom}">
 			    	</option>
 			    </select>
               <label>Véhicule</label>
-               <select multiple class="form-select-multi" aria-label="Default select example" name="vehicules">
-				    <option th:each="vehicule:${vehicules}" th:value="${vehicule.id}" th:text="${vehicule.marque+vehicule.model}">
+               <select multiple class="form-select-multi" aria-label="Default select example" name="vehicule">
+				    <option th:each="vehicule:${vehicules}" th:value="${vehicule.id}" th:text="${vehicule.marque+' '+vehicule.model}">
 				    </option>
 			    </select>
             </div>

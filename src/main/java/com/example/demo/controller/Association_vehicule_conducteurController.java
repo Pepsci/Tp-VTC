@@ -31,7 +31,7 @@ public class Association_vehicule_conducteurController {
 		return "menu/gestion";
 	}
 	
-	@PostMapping("/ajoutAsso")
+	@PostMapping("/gestion")
 	public String ajoutAsso(@Validated Association_vehicule_conducteur association_vehicule_conducteur,BindingResult bindingResult) {
 		
 		if (bindingResult.hasErrors()) {

@@ -75,5 +75,10 @@ public class Conducteur {
 		this.vehicules = vehicules;
 	}
 
+	@Override
+	public String toString() {
+		return "" + nom + " " + prenom + "";
+	}
+
 	
 }
