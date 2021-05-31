@@ -51,7 +51,7 @@ public class ConducteurController {
 	
 	
 	@GetMapping("/delete/{id}")
-	public String suppConducteur(@PathVariable("id") long id, Model model) {
+	public String suppConducteur(@PathVariable("id") Long id, Model model) {
 		Conducteur conducteur = conducteurRepository.findById(id)
 	    .orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
 		conducteurRepository.delete(conducteur);
