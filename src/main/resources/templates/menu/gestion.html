@@ -31,7 +31,7 @@
               <input type="hidden" class="form-control" name="id">
               <label>Conducteur</label>
                <select class="form-select" aria-label="Default select example" name="conducteur">
-               		<option value="">Choisissez la conducteur</option>	
+               		<option value="">Choisissez le conducteur</option>	
 			    	<option th:each="conducteur:${conducteurs}" th:value="${conducteur.id}" th:text="${conducteur.nom +' '+ conducteur.prenom}">
 			    	</option>
 			    </select>

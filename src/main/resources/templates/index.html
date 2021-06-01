@@ -1,4 +1,55 @@
 <link rel="stylesheet" href="/css/tableForm.css">
+<meta charset="UTF-8">
 <div th:replace="fragment/header::header"></div>
 
-<p>Page accueille</p>
+<div class="container">
+	<table class="table">
+	      <tr>
+          <th>Diponibilité</th>
+          <th>Nombre</th>
+          </tr>
+          <tr>
+          <th>Nombre de conducteur</th>
+          <th th:text="${nbrConducteur}"></th>
+          </tr>
+          <tr>
+          <th>Nombre de véhicule</th>
+          <th th:text="${nbrVehicule}"></th>
+          </tr>
+          <tr>
+          <th>Nombre d'association</th>
+          <th th:text="${nbrAsso}"></th>
+          </tr>
+          <tr>
+          <th>Nombre de véhicule disponible</th>
+          <th th:text="${nbrConducteurDispo}"></th>
+          </tr>
+          <tr>
+          <th>Nombre Conducteur disponible</th>
+          <th th:text="${nbrVehiculeDispo}"></th>
+          </tr>
+    </table>
+
+    
+    <table class="table">
+          <tr>
+            <th>Véhicule Disponible</th>
+          </tr>
+          <tr th:each="listeVehiculeDispo:${listeVehiculeDispos}">
+            <td th:text="${listeVehiculeDispo}"></td>
+          </tr>
+      </table>
+    
+    <table class="table">
+          <tr>
+            <th>Conducteur Disponible</th>
+          </tr>
+          <tr th:each="listeConducteurDispo:${listeConducteurDispos}">
+            <td th:text="${listeConducteurDispo}"></td>
+          </tr>
+      </table>
+  </div>
+          
+          
+          
+          
